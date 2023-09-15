@@ -36,19 +36,21 @@ const CircularLock = () => {
     }
   }).join(` M ${centerX},${centerY} m ${-gapSize},${-gapSize}`);
 
-  const svgWidth = radius * 2 + gapSize * 2; // Calculate the SVG width
-  const svgHeight = radius * 2 + gapSize * 2; // Calculate the SVG height
+  const svgWidth = radius * 2 + gapSize * 30; // Calculate the SVG width
+  const svgHeight = radius * 2 + gapSize * 30; // Calculate the SVG height
 
   return (
     <>
     <div className='centered-lock-container'>
         <svg width={svgWidth} height={svgHeight}> {/* Increase the width and height to accommodate the larger circle */}
-          <path
-            d={pathData}
-            fill="none"
-            stroke="blue" // Color of the circular path
-            strokeWidth="8" // Adjust the strokeWidth to control the width of the gaps
-          />
+          <g transform={`translate(${(svgWidth - (radius * 2 + gapSize * 2)) / 2}, ${(svgHeight - (radius * 2 + gapSize * 2)) / 2})`}>
+            <path
+              d={pathData}
+              fill="none"
+              stroke="blue" // Color of the circular path
+              strokeWidth="8" // Adjust the strokeWidth to control the width of the gaps
+            />
+          </g>
         </svg>
       </div>
     </>
