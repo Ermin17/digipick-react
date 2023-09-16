@@ -13,9 +13,30 @@ const generateLockArray = () => {
   const lockArray = Array.from({ length: numZeros }, () => 0).concat(Array.from({ length: numOnes }, () => 1));
 
   // Shuffle the array randomly to distribute the zeros and ones
-  for (let i = lockArray.length - 2; i > 0; i--) {
+  for (let i = lockArray.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
     [lockArray[i], lockArray[j]] = [lockArray[j], lockArray[i]];
+  }
+
+  // Ensure no consecutive zeros by checking and shifting if necessary
+  let consecutiveZeros = 0;
+  for (let i = 0; i < lockArray.length; i++) {
+    if (lockArray[i] === 0) {
+      consecutiveZeros++;
+      if (consecutiveZeros >= 2) {
+        // If there are two consecutive zeros, swap one with a 1
+        let j = i + 1;
+        while (j < lockArray.length && lockArray[j] === 0) {
+          j++;
+        }
+        if (j < lockArray.length) {
+          [lockArray[i], lockArray[j]] = [lockArray[j], lockArray[i]];
+          consecutiveZeros = 0;
+        }
+      }
+    } else {
+      consecutiveZeros = 0;
+    }
   }
 
   return lockArray;
@@ -42,5 +63,5 @@ const generateArrayOfLocks = (difficulty) => {
 
   return lockArray;
 };
-
+console.log(generateArrayOfLocks('novice'));
 module.exports = generateArrayOfLocks;
