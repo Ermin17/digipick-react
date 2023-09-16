@@ -32,6 +32,15 @@ const generateLockArray = () => {
         if (j < lockArray.length) {
           [lockArray[i], lockArray[j]] = [lockArray[j], lockArray[i]];
           consecutiveZeros = 0;
+        } else {
+          // If the consecutive zero is the last element, swap it with a 1 from an earlier position
+          for (let k = i - 1; k >= 0; k--) {
+            if (lockArray[k] === 1) {
+              [lockArray[i], lockArray[k]] = [lockArray[k], lockArray[i]];
+              consecutiveZeros = 0;
+              break;
+            }
+          }
         }
       }
     } else {
