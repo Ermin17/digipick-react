@@ -72,5 +72,5 @@ const generateArrayOfLocks = (difficulty) => {
 
   return lockArray;
 };
-console.log(generateArrayOfLocks('novice'));
+
 module.exports = generateArrayOfLocks;
