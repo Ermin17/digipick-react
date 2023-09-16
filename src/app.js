@@ -1,5 +1,5 @@
 import React from 'react';
-import CircularLockLock from './components/Lock.js';
+import CircularLock from './components/Lock.js';
 import './styles.css';
 
 const App = () => {
@@ -7,7 +7,7 @@ const App = () => {
     <>
     {/* <div className='circle'>Hello world!</div> */}
     <div>
-      <CircularLockLock numLocks={5} />
+      <CircularLock numLocks={5} />
     </div>
     </>
   )
