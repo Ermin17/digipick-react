@@ -1,17 +1,9 @@
 import React from 'react';
 import '../styles.css';
 
-const CircularLock = ({numLocks}) => {
+const CircularLock = ({numLocks, arrayOfLocks}) => {
   const lockArray = [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 1, 0, 1, 1, 0, 0, 0,
-    0, 0, 1, 1, 1, 1, 1, 1, 0, 0,
-    0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-    0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-    0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-    0, 0, 1, 1, 1, 1, 1, 1, 0, 0,
-    0, 0, 0, 1, 1, 1, 1, 0, 0, 0,
-    0, 0, 0, 1, 0, 1, 1, 0, 0, 0,
+    1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1
   ];
 
   const gapSize = 8; // Adjust the size of the gap
@@ -26,7 +18,7 @@ const CircularLock = ({numLocks}) => {
   for (let i = 0; i < numLocks; i++) {
     const radius = maxRadius - i * gapSize * 2; // Decrease the radius for each inner circle
 
-    const pathData = lockArray.map((value, index) => {
+    const pathData = arrayOfLocks[i].map((value, index) => {
       if (value === 1) {
         const startAngle = stepAngle * index;
         const endAngle = stepAngle * (index + 1);
