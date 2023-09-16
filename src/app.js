@@ -5,10 +5,9 @@ import './styles.css';
 const App = () => {
   return (
     <>
-    {/* <div className='circle'>Hello world!</div> */}
-    <div>
-      <CircularLock numLocks={5} />
-    </div>
+      <div>
+        <CircularLock numLocks={5} />
+      </div>
     </>
   )
 };
