@@ -22,17 +22,18 @@ const generateRemainingLockpicks = (difficulty) => {
     var newLockpick = [];
     for (var i = 0; i < 20; i++) {
       if (zerosCount < maxZeros && Math.random() > 0.5) {
-        newLockpick.push(0);
+        newLockpick.push(1);
         zerosCount++;
       } else {
-        newLockpick.push(1);
+        newLockpick.push(0);
+
       }
 
     }
 
     // Ensure there is at least 1 zero
     var randomIndex = Math.floor(Math.random() * 20);
-    newLockpick[randomIndex] = 0;
+    newLockpick[randomIndex] = 1;
     randomSolutions.push(newLockpick);
     solutionCount++;
 
