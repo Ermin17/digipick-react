@@ -1,5 +1,4 @@
 // This will generate the lockpicks that can solve the puzzle
-var test = [1, 0, 1, 1, 1, 0, 1, 1, 0];
 const generateSolution = (lockArray) => {
   var lockpickArray;
 
@@ -26,4 +25,5 @@ const randomizeSolutionPlacement = (lockpicksArray, positions) => {
   return randomizedPlacement;
 };
 
-console.log(generateSolution(test));
+
+module.exports = generateSolution;
