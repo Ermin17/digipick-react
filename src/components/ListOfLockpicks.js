@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import Lockpick from './Lockpick.js';
 import '../styles.css'
 
@@ -13,7 +14,7 @@ const ListOfLockpicks = ({ arrayOfLockpicks, handleLockpickSelection }) => {
       <div>
         {arrayOfLockpicks.map((lockpick, index) => {
           return (
-            <Lockpick key={index} lockpick={lockpick} onClick={handleLockpickSelection} />
+            <Lockpick key={index} lockpick={lockpick} />
           );
         })}
       </div>

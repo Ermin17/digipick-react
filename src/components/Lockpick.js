@@ -1,6 +1,17 @@
 import React from 'react';
+import {useState} from'react';
+import { useLockpickContext } from './LockpickContext';
 
 const Lockpick = ({ lockpick }) => {
+
+  // const [selectedLockpick, setSelectedLockpick] = useState(arrayOfLockpicks[0]);
+  const { selectedLockpick, setSelectedLockpick } = useLockpickContext();
+
+  var handleLockpickSelection = (lockpick) => {
+    setSelectedLockpick(lockpick);
+    console.log(selectedLockpick);
+  };
+
   const gapSize = 8; // Adjust the size of the gap
   const maxRadius = Math.min(100, 200) / 2; // Increase the radius value to make the circle appear larger
   const centerX = maxRadius; // X-coordinate of the circle's center
@@ -28,7 +39,7 @@ const Lockpick = ({ lockpick }) => {
   const svgHeight = maxRadius * 2 + gapSize * 30; // Calculate the SVG height
 
   return (
-    <svg width={svgWidth} height={svgHeight}>
+    <svg width={svgWidth} height={svgHeight} onClick={() => handleLockpickSelection(lockpick)}>
       {/* Increase the width and height to accommodate the larger circle */}
       <g
         transform={`translate(${
