@@ -5,10 +5,10 @@ const DifficultySelector = ({ handleDifficultyClick }) => {
   return (
     <>
     <div className='difficulties'>
-      <div onClick={handleDifficultyClick}>Novice</div>
-      <div onClick={handleDifficultyClick}>Advanced</div>
-      <div onClick={handleDifficultyClick}>Expert</div>
-      <div onClick={handleDifficultyClick}>Master</div>
+      <div onClick={handleDifficultyClick}>novice</div>
+      <div onClick={handleDifficultyClick}>advanced</div>
+      <div onClick={handleDifficultyClick}>expert</div>
+      <div onClick={handleDifficultyClick}>master</div>
     </div>
     </>
   );
