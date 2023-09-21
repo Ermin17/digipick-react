@@ -1,6 +1,40 @@
+.main-screen {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgb(44, 44, 44);
+}
+
 .centered-lock-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.list-of-lockpicks {
+  display: flex;
+  flex-wrap: wrap;
+  width: 55vw;
+  height: 75vh;
+  background-color: rgb(44, 44, 44);
+  border: 2px solid white;
+}
+
+.lockpick-header {
+  position: absolute;
+  font-size: xx-large;
+  margin: 20px;
+}
+
+.difficulties {
+  font-size: x-large;
+  color: aliceblue;
+}
+
+.difficulty-not-chosen {
+  font-size: xx-large;
+  color: aliceblue;
+  float:inline-start;
 }
