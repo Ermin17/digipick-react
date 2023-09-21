@@ -1,17 +1,20 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import CircularLock from './components/Lock.js';
 import ListOfLockpicks from './components/ListOfLockpicks.js';
 import DifficultySelector from './components/DifficultySelector.js';
 import SelectedLockpick from './components/SelectedLockpick.js';
+import { LockpickProvider } from './components/LockpickContext';
 import generateArrayOfLocks from './helpers/generateRandomLock.js';
 import generateSolution from './helpers/generateSolution.js';
 import generateRemainingLockpicks from './helpers/generateRemainingLockpicks.js';
+import { shiftLockpickRight, shiftLockpickLeft } from './helpers/rotateLockpick.js';
 import './styles.css';
 
 const App = () => {
 
-  var chosenDifficulty = 'master';
+  const [chosenDifficulty, setChosenDifficulty] = useState('novice');
+  var chosenDifficultys = 'master';
 
   var handleDifficultyClick = (event) => {
     setChosenDifficulty(event.target.textContent);
@@ -39,22 +42,19 @@ const App = () => {
   }
 
   shuffleArray(arrayOfLockpicks);
-
-  const [selectedLockpick, setSelectedLockpick] = useState([]);
-  var handleLockpickSelection = (event) => {
-    console.log(event);
-    setSelectedLockpick(event.target);
-  };
+  // Note: Passing in arrayOfLocks also generates solutions since the path data is inverted. Could optimize later
+  // const [selectedLockpick, setSelectedLockpick] = useState(arrayOfLockpicks[0]);
 
   return (
-    <>
-      <div className='main-screen'>
-        <DifficultySelector handleDifficultyClick={handleDifficultyClick} />
-        <CircularLock numLocks={numLocks} arrayOfLocks={arrayOfLocks} />
-        <ListOfLockpicks arrayOfLockpicks={arrayOfLockpicks} handleLockpickSelection={handleDifficultyClick} />
-        <SelectedLockpick />
-      </div>
-    </>
+    <LockpickProvider>
+      <>
+        <div className='main-screen'>
+          <DifficultySelector handleDifficultyClick={handleDifficultyClick} />
+          <CircularLock numLocks={numLocks} arrayOfLocks={arrayOfLocks} />
+          <ListOfLockpicks arrayOfLockpicks={arrayOfLockpicks} />
+        </div>
+      </>
+    </LockpickProvider>
   )
 };
 
