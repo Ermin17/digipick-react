@@ -38,7 +38,7 @@ const CircularLock = ({numLocks, arrayOfLocks}) => {
       key={i}
       d={pathData}
       fill='none'
-      stroke='blue'
+      stroke='aliceblue'
       strokeWidth='8'
       />
     );
