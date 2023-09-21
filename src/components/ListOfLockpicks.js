@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import Lockpick from './Lockpick.js';
 import '../styles.css'
 

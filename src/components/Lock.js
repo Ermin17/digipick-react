@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import SelectedLockpick from './SelectedLockpick.js';
 import { shiftLockpickRight, shiftLockpickLeft } from '../helpers/rotateLockpick.js';
 import { useLockpickContext } from './LockpickContext';
@@ -10,7 +9,6 @@ const CircularLock = ({ numLocks, arrayOfLocks }) => {
     1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1
   ];
 
-  // const [selectedLockpick, setSelectedLockpick] = useState(arrayOfLockpicks[0]);
   const { selectedLockpick, setSelectedLockpick } = useLockpickContext();
 
   const gapSize = 8; // Adjust the size of the gap

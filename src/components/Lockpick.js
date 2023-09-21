@@ -1,15 +1,12 @@
 import React from 'react';
-import {useState} from'react';
 import { useLockpickContext } from './LockpickContext';
 
 const Lockpick = ({ lockpick }) => {
 
-  // const [selectedLockpick, setSelectedLockpick] = useState(arrayOfLockpicks[0]);
   const { selectedLockpick, setSelectedLockpick } = useLockpickContext();
 
   var handleLockpickSelection = (lockpick) => {
     setSelectedLockpick(lockpick);
-    console.log(selectedLockpick);
   };
 
   const gapSize = 8; // Adjust the size of the gap

@@ -1,14 +1,12 @@
 import React from 'react';
-import { useState, useEffect, useMemo } from 'react';
+import { useState } from 'react';
 import CircularLock from './components/Lock.js';
 import ListOfLockpicks from './components/ListOfLockpicks.js';
 import DifficultySelector from './components/DifficultySelector.js';
-import SelectedLockpick from './components/SelectedLockpick.js';
 import { LockpickProvider } from './components/LockpickContext';
 import generateArrayOfLocks from './helpers/generateRandomLock.js';
 import generateSolution from './helpers/generateSolution.js';
 import generateRemainingLockpicks from './helpers/generateRemainingLockpicks.js';
-import { shiftLockpickRight, shiftLockpickLeft } from './helpers/rotateLockpick.js';
 import './styles.css';
 
 const App = () => {
@@ -18,7 +16,6 @@ const App = () => {
 
   var handleDifficultyClick = (event) => {
     setChosenDifficulty(event.target.textContent);
-    console.log(event.target.textContent);
   };
 
 
