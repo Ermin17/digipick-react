@@ -14,19 +14,10 @@ const App = () => {
   const [chosenDifficulty, setChosenDifficulty] = useState('novice');
 
   const [arrayOfLocks, setArrayOfLocks] = useState(generateArrayOfLocks(chosenDifficulty));
-  var handleDifficultyClick = (event) => {
-    var newDifficulty = event.target.textContent;
-    setChosenDifficulty(newDifficulty);
-    setArrayOfLocks(generateArrayOfLocks(newDifficulty));
-  };
 
   var numLocks = arrayOfLocks.length;
 
-  var arrayOfSolutions = [];
-  for (let i = 0; i < arrayOfLocks.length; i++) {
-    var newLockpick = generateSolution(arrayOfLocks[i]);
-    arrayOfSolutions.push(newLockpick);
-  }
+  const arrayOfSolutions = arrayOfLocks.map((lock) => generateSolution(lock));
 
   var remainingLockpicks = generateRemainingLockpicks(chosenDifficulty);
   var arrayOfLockpicks = arrayOfSolutions.concat(remainingLockpicks);
@@ -41,6 +32,19 @@ const App = () => {
 
   shuffleArray(arrayOfLockpicks);
   // Note: Passing in arrayOfLocks also generates solutions since the path data is inverted. Could optimize later
+
+  var handleDifficultyClick = (event) => {
+    var newDifficulty = event.target.textContent;
+    setChosenDifficulty(newDifficulty);
+
+    const newArrayOfLocks = generateArrayOfLocks(newDifficulty);
+    setArrayOfLocks(newArrayOfLocks);
+
+    const newArrayOfSolutions = newArrayOfLocks.map((lock) => generateSolution(lock));
+
+    const newLockpickList = generateRemainingLockpicks(newDifficulty).concat(newArrayOfSolutions);
+    setAllRemainingLockpicks(newLockpickList);
+  };
 
   return (
     <LockpickProvider>
