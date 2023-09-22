@@ -14,12 +14,13 @@ const App = () => {
   const [chosenDifficulty, setChosenDifficulty] = useState('novice');
   var chosenDifficultys = 'master';
 
+  const [arrayOfLocks, setArrayOfLocks] = useState(generateArrayOfLocks(chosenDifficulty));
   var handleDifficultyClick = (event) => {
-    setChosenDifficulty(event.target.textContent);
+    var newDifficulty = event.target.textContent;
+    setChosenDifficulty(newDifficulty);
+    setArrayOfLocks(generateArrayOfLocks(newDifficulty));
   };
 
-
-  var arrayOfLocks = generateArrayOfLocks(chosenDifficulty);
   var numLocks = arrayOfLocks.length;
 
   var arrayOfSolutions = [];
@@ -40,14 +41,13 @@ const App = () => {
 
   shuffleArray(arrayOfLockpicks);
   // Note: Passing in arrayOfLocks also generates solutions since the path data is inverted. Could optimize later
-  // const [selectedLockpick, setSelectedLockpick] = useState(arrayOfLockpicks[0]);
 
   return (
     <LockpickProvider>
       <>
         <div className='main-screen'>
           <DifficultySelector handleDifficultyClick={handleDifficultyClick} />
-          <CircularLock numLocks={numLocks} arrayOfLocks={arrayOfLocks} />
+          <CircularLock numLocks={numLocks} arrayOfLocks={arrayOfLocks} setArrayOfLocks={setArrayOfLocks} />
           <ListOfLockpicks arrayOfLockpicks={arrayOfLockpicks} />
         </div>
       </>
