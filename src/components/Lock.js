@@ -5,7 +5,7 @@ import { useLockpickContext } from './LockpickContext';
 import { checkLockpickPlacement } from '../helpers/checkLockpickPlacement.js';
 import '../styles.css';
 
-const CircularLock = ({ numLocks, arrayOfLocks, setArrayOfLocks }) => {
+const CircularLock = ({ numLocks, arrayOfLocks, setArrayOfLocks, allRemainingLockpicks, setAllRemainingLockpicks }) => {
   const lockArray = [
     1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1
   ];
@@ -21,6 +21,7 @@ const CircularLock = ({ numLocks, arrayOfLocks, setArrayOfLocks }) => {
   const [currentLockIndex, setCurrentLockIndex] = useState(0);
   const [selectedLocks, setSelectedLocks] = useState(arrayOfLocks);
   const [showCongrats, setShowCongrats] = useState(false);
+  const [remainingLockpicks, setRemainingLockpicks] = useState(allRemainingLockpicks);
 
   useEffect(() => {
     setSelectedLocks(arrayOfLocks);
@@ -57,16 +58,39 @@ const CircularLock = ({ numLocks, arrayOfLocks, setArrayOfLocks }) => {
   const svgWidth = maxRadius * 2 + gapSize * 30; // Calculate the SVG width
   const svgHeight = maxRadius * 2 + gapSize * 30; // Calculate the SVG height
 
+  const updateRemainingLockpicks = (shiftedLockpick) => {
+    const indexToUpdate = allRemainingLockpicks.findIndex((lockpick) => {
+      return arraysEqual(lockpick, selectedLockpick);
+    });
+
+    if (indexToUpdate !== -1) {
+      console.log(allRemainingLockpicks);
+      const updatedRemainingLockpicks = [...allRemainingLockpicks];
+      updatedRemainingLockpicks[indexToUpdate] = shiftedLockpick;
+      setAllRemainingLockpicks(updatedRemainingLockpicks);
+    }
+    setSelectedLockpick(shiftedLockpick)
+  };
+
+
+  const arraysEqual = (arr1, arr2) => {
+    if (arr1.length !== arr2.length) return false;
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i] !== arr2[i]) return false;
+    }
+    return true;
+  }
+
 
   const shiftRight = () => {
     const shiftedLockpick = shiftLockpickRight(selectedLockpick);
-    setSelectedLockpick(shiftedLockpick);
+    updateRemainingLockpicks(shiftedLockpick);
   };
 
 
   const shiftLeft = () => {
     const shiftedLockpick = shiftLockpickLeft(selectedLockpick);
-    setSelectedLockpick(shiftedLockpick);
+    updateRemainingLockpicks(shiftedLockpick);
   };
 
   const checkAndUpdateLock = () => {
@@ -100,12 +124,20 @@ const CircularLock = ({ numLocks, arrayOfLocks, setArrayOfLocks }) => {
 
         return updatedLocks;
       });
+
+      // Remove the used lockpick from remainingLockpicks
+      setAllRemainingLockpicks((prevRemainingLockpicks) =>
+      prevRemainingLockpicks.filter((lockpick) => lockpick !== selectedLockpick));
+
+      setAllRemainingLockpicks((prevAllRemainingLockpicks) =>
+        prevAllRemainingLockpicks.filter((lockpick) => lockpick !== selectedLockpick));
+
+      setSelectedLockpick(remainingLockpicks[0]);
+
     } else {
       // Handle incorrect placement
       console.log('Try again!');
-      console.log(selectedLocks);
-      // Optionally, you can reset the lock state or take other actions here.
-      // For example, you can show a message indicating that the lock is reset.
+
     }
   };
 

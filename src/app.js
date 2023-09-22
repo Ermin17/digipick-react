@@ -30,6 +30,7 @@ const App = () => {
 
   var remainingLockpicks = generateRemainingLockpicks(chosenDifficulty);
   var arrayOfLockpicks = arrayOfSolutions.concat(remainingLockpicks);
+  const [allRemainingLockpicks, setAllRemainingLockpicks] = useState(arrayOfLockpicks);
 
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -46,8 +47,8 @@ const App = () => {
       <>
         <div className='main-screen'>
           <DifficultySelector handleDifficultyClick={handleDifficultyClick} />
-          <CircularLock numLocks={numLocks} arrayOfLocks={arrayOfLocks} setArrayOfLocks={setArrayOfLocks} />
-          <ListOfLockpicks arrayOfLockpicks={arrayOfLockpicks} />
+          <CircularLock numLocks={numLocks} arrayOfLocks={arrayOfLocks} setArrayOfLocks={setArrayOfLocks} allRemainingLockpicks={allRemainingLockpicks} setAllRemainingLockpicks={setAllRemainingLockpicks} />
+          <ListOfLockpicks arrayOfLockpicks={allRemainingLockpicks} />
         </div>
       </>
     </LockpickProvider>
