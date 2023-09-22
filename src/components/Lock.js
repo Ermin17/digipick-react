@@ -148,25 +148,32 @@ const CircularLock = ({ numLocks, arrayOfLocks, setArrayOfLocks, allRemainingLoc
 
 
   return (
-    <>
-      <div className='centered-lock-container'>
-        <input type='button' value='Shift Left' onClick={shiftLeft} />
-        <input type='button' value='Shift Right' onClick={shiftRight} />
-        <input type='button' value='Slot' onClick={checkAndUpdateLock} />
-        <svg width={svgWidth} height={svgHeight}> {/* Increase the width and height to accommodate the larger circle */}
-          <g transform={`translate(${(svgWidth - (maxRadius * 2 + gapSize * 2)) / 2}, ${(svgHeight - (maxRadius * 2 + gapSize * 2)) / 2})`}>
-            {locks}
-            <SelectedLockpick selectedLockpick={selectedLockpick} />
-            {showCongrats && (
-              <text x={svgWidth / 4} y={svgHeight / 2} fontSize={24} fill='white'>
-                Congrats for Unlocking the Lock!
-              </text>
-            )}
-          </g>
-        </svg>
-      </div>
-    </>
-  );
+  <>
+    <div className='centered-lock-container'>
+      <svg width={svgWidth} height={svgHeight}>
+        <g transform={`translate(${(svgWidth - (maxRadius * 2 + gapSize * 2)) / 2}, ${(svgHeight - (maxRadius * 2 + gapSize * 2)) / 2})`}>
+          {locks}
+          <SelectedLockpick selectedLockpick={selectedLockpick} />
+          {showCongrats && (
+            <text x={svgWidth / 4} y={svgHeight / 2} fontSize={24} fill='white'>
+              Congrats for Unlocking the Lock!
+            </text>
+          )}
+        </g>
+        {/* Input elements within the SVG */}
+        <foreignObject x={0} y={0} width={svgWidth} height={svgHeight}>
+          <div className="input-container">
+            <input type='button' value='Shift Left' onClick={shiftLeft} />
+            <input type='button' value='Shift Right' onClick={shiftRight} />
+            <input type='button' value='Slot' onClick={checkAndUpdateLock} />
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+  </>
+);
+
+
 };
 
 export default CircularLock;
