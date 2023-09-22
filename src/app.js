@@ -12,7 +12,6 @@ import './styles.css';
 const App = () => {
 
   const [chosenDifficulty, setChosenDifficulty] = useState('novice');
-  var chosenDifficultys = 'master';
 
   const [arrayOfLocks, setArrayOfLocks] = useState(generateArrayOfLocks(chosenDifficulty));
   var handleDifficultyClick = (event) => {
