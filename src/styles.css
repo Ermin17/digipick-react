@@ -1,9 +1,10 @@
 .main-screen {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
   background-color: rgb(44, 44, 44);
+  padding: 20px; /* Add padding for spacing */
 }
 
 .centered-lock-container {
@@ -11,31 +12,79 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  position: relative; /* Add relative positioning */
 }
 
-.list-of-lockpicks {
-  display: flex;
-  flex-wrap: wrap;
+.input-container {
+  position: absolute;
+  margin-left: 8vw;
+}
+
+.input-container input {
+  margin-right: 10px; /* Add spacing between buttons */
+  padding: 10px 20px; /* Adjust padding as needed */
+  font-size: 16px; /* Adjust font size as needed */
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none; /* Remove button border */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Add transition for background color */
+
+  /* Hover effect */
+  &:hover {
+    background-color: #0056b3; /* Change background color on hover */
+  }
+}
+
+
+.list-of-lockpicks-container {
   width: 55vw;
-  height: 75vh;
+  max-width: 45%; /* Limit max width to make space for difficulties */
   background-color: rgb(44, 44, 44);
   border: 2px solid white;
+  padding: 20px; /* Add padding for spacing */
+  display: flex;
+  flex-direction: column; /* Change to column layout */
 }
 
 .lockpick-header {
   color: aliceblue;
-  position: absolute;
   font-size: xx-large;
-  margin: 20px;
+  margin: 0 0 20px; /* Adjust margin for spacing */
+}
+
+.list-of-lockpicks {
+  overflow-y: auto; /* Add scrollbar when content overflows */
+  flex-grow: 1; /* Allow it to grow and take available space */
 }
 
 .difficulties {
   font-size: x-large;
   color: aliceblue;
+  margin: 0 0 20px; /* Adjust margin for spacing */
 }
 
-.difficulty-not-chosen {
-  font-size: xx-large;
+#difficulty-novice,
+#difficulty-advanced,
+#difficulty-expert,
+#difficulty-master {
+  font-size: x-large;
   color: aliceblue;
-  float:inline-start;
+  margin: 0 0 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+#difficulty-novice:hover,
+#difficulty-advanced:hover,
+#difficulty-expert:hover,
+#difficulty-master:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  text-decoration-color: cyan;
+  filter: drop-shadow(0 0 5px cyan);
+}
+
+
+
