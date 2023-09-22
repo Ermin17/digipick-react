@@ -51,7 +51,7 @@ const App = () => {
       <>
         <div className='main-screen'>
           <DifficultySelector handleDifficultyClick={handleDifficultyClick} />
-          <CircularLock numLocks={numLocks} arrayOfLocks={arrayOfLocks} setArrayOfLocks={setArrayOfLocks} allRemainingLockpicks={allRemainingLockpicks} setAllRemainingLockpicks={setAllRemainingLockpicks} />
+          <CircularLock numLocks={numLocks} arrayOfLocks={arrayOfLocks} setArrayOfLocks={setArrayOfLocks} allRemainingLockpicks={allRemainingLockpicks} setAllRemainingLockpicks={setAllRemainingLockpicks} chosenDifficulty={chosenDifficulty} />
           <ListOfLockpicks arrayOfLockpicks={allRemainingLockpicks} />
         </div>
       </>
