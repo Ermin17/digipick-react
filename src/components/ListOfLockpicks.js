@@ -2,7 +2,7 @@ import React from 'react';
 import Lockpick from './Lockpick.js';
 import '../styles.css'
 
-const ListOfLockpicks = ({ arrayOfLockpicks, handleLockpickSelection }) => {
+const ListOfLockpicks = ({ arrayOfLockpicks }) => {
 
   return (
     <>
