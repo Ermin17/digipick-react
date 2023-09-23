@@ -1,90 +1,97 @@
-.main-screen {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  background-color: rgb(44, 44, 44);
-  padding: 20px; /* Add padding for spacing */
+/* Adjust the header class */
+.header {
+  color: aliceblue;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-.centered-lock-container {
+/* Update the main-screen class */
+.main-screen {
   display: flex;
+  background-color: rgb(44, 44, 44);
+  margin: 0;
+  height: 98vh;
+}
+
+/* Adjust the difficulties class */
+.column-difficulties {
+  font-size: 24px; /* Increase font size */
+  color: aliceblue;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+}
+
+.column-lock {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  position: relative; /* Add relative positioning */
+  position: relative; /* Add relative positioning to the columns */
 }
 
 .input-container {
-  position: absolute;
-  margin-left: 8vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
 }
 
 .input-container input {
-  margin-right: 10px; /* Add spacing between buttons */
-  padding: 10px 20px; /* Adjust padding as needed */
-  font-size: 16px; /* Adjust font size as needed */
-  background-color: #007bff; /* Button background color */
-  color: #fff; /* Button text color */
-  border: none; /* Remove button border */
-  cursor: pointer; /* Change cursor to pointer on hover */
-  transition: background-color 0.3s ease; /* Add transition for background color */
-
-  /* Hover effect */
-  &:hover {
-    background-color: #0056b3; /* Change background color on hover */
-  }
+  background-color: aliceblue;
+  color: black;
+  width: 90px; /* Set the width and height to create square buttons */
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 5px;
 }
 
+.input-container input:hover {
+  background-color: lightblue; /* Change the background color on hover */
+}
 
-.list-of-lockpicks-container {
-  width: 55vw;
-  max-width: 45%; /* Limit max width to make space for difficulties */
-  background-color: rgb(44, 44, 44);
-  border: 2px solid white;
-  padding: 20px; /* Add padding for spacing */
-  display: flex;
-  flex-direction: column; /* Change to column layout */
+/* Define the column styling */
+.column-lockpicks {
+  flex: 0.95;
+  height: 60vh;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  position: relative;
+  margin: auto; /* Auto margin to center horizontally within the parent container */
 }
 
 .lockpick-header {
-  color: aliceblue;
-  font-size: xx-large;
-  margin: 0 0 20px; /* Adjust margin for spacing */
-}
-
-.list-of-lockpicks {
-  overflow-y: auto; /* Add scrollbar when content overflows */
-  flex-grow: 1; /* Allow it to grow and take available space */
-}
-
-.difficulties {
+  color: white;
   font-size: x-large;
-  color: aliceblue;
-  margin: 0 0 20px; /* Adjust margin for spacing */
 }
 
-#difficulty-novice,
-#difficulty-advanced,
-#difficulty-expert,
-#difficulty-master {
-  font-size: x-large;
-  color: aliceblue;
-  margin: 0 0 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+/* Add unique IDs for each difficulty button */
+#difficulty-novice:hover {
+  text-decoration-color: lightgreen;
+  text-decoration: underline; /* Underline by default */
+  filter: drop-shadow(0 0 5px lightgreen);
 }
 
-#difficulty-novice:hover,
-#difficulty-advanced:hover,
-#difficulty-expert:hover,
+#difficulty-advanced:hover {
+  text-decoration-color: lightskyblue;
+  text-decoration: underline; /* Underline by default */
+  filter: drop-shadow(0 0 5px lightskyblue);
+}
+
+#difficulty-expert:hover {
+  text-decoration-color: purple;
+  text-decoration: underline; /* Underline by default */
+  filter: drop-shadow(0 0 5px purple);
+}
+
 #difficulty-master:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 2px;
-  text-decoration-color: cyan;
-  filter: drop-shadow(0 0 5px cyan);
+  text-decoration-color: orange;
+  text-decoration: underline; /* Underline by default */
+  filter: drop-shadow(0 0 5px orange);
 }
-
-
 

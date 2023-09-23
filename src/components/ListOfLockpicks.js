@@ -8,7 +8,7 @@ const ListOfLockpicks = ({ arrayOfLockpicks }) => {
     <>
     <div className='list-of-lockpicks'>
       <div className='lockpick-header'>
-        Lockpicks
+        Digipicks
       </div>
       <div>
         {arrayOfLockpicks.map((lockpick, index) => {
