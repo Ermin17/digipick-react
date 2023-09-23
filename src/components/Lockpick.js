@@ -57,7 +57,7 @@ const Lockpick = ({ lockpick }) => {
   const svgHeight = maxRadius * 2 + gapSize * 30; // Calculate the SVG height
 
   return (
-    <svg width={svgWidth} height={svgHeight} onClick={() => handleLockpickSelection(lockpick)}>
+    <svg className='lockpick' width={svgWidth} height={svgHeight} onClick={() => handleLockpickSelection(lockpick)}>
       {/* Increase the width and height to accommodate the larger circle */}
       <g
         transform={`translate(${

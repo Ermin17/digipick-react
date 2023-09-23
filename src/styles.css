@@ -70,6 +70,10 @@
   font-size: x-large;
 }
 
+.lockpick:hover {
+  cursor: pointer;
+}
+
 /* Add unique IDs for each difficulty button */
 #difficulty-novice:hover {
   text-decoration-color: lightgreen;
