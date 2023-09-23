@@ -48,15 +48,23 @@ const App = () => {
 
   return (
     <LockpickProvider>
-      <>
-        <div className='main-screen'>
-          <DifficultySelector handleDifficultyClick={handleDifficultyClick} />
-          <CircularLock numLocks={numLocks} arrayOfLocks={arrayOfLocks} setArrayOfLocks={setArrayOfLocks} allRemainingLockpicks={allRemainingLockpicks} setAllRemainingLockpicks={setAllRemainingLockpicks} chosenDifficulty={chosenDifficulty} />
-          <ListOfLockpicks arrayOfLockpicks={allRemainingLockpicks} />
+      <div className='main-screen'>
+        <div className='header'>
+          <h1>Starfield Digipick React</h1>
         </div>
-      </>
+        <DifficultySelector handleDifficultyClick={handleDifficultyClick} />
+        <CircularLock
+          numLocks={numLocks}
+          arrayOfLocks={arrayOfLocks}
+          setArrayOfLocks={setArrayOfLocks}
+          allRemainingLockpicks={allRemainingLockpicks}
+          setAllRemainingLockpicks={setAllRemainingLockpicks}
+          chosenDifficulty={chosenDifficulty}
+        />
+        <ListOfLockpicks arrayOfLockpicks={allRemainingLockpicks} />
+      </div>
     </LockpickProvider>
-  )
+  );
 };
 
 export default App;
