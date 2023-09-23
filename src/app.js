@@ -56,7 +56,6 @@ const App = () => {
         <CircularLock
           numLocks={numLocks}
           arrayOfLocks={arrayOfLocks}
-          setArrayOfLocks={setArrayOfLocks}
           allRemainingLockpicks={allRemainingLockpicks}
           setAllRemainingLockpicks={setAllRemainingLockpicks}
           chosenDifficulty={chosenDifficulty}

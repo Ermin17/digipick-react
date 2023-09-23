@@ -5,23 +5,19 @@ import { useLockpickContext } from './LockpickContext';
 import { checkLockpickPlacement } from '../helpers/checkLockpickPlacement.js';
 import '../styles.css';
 
-const CircularLock = ({ numLocks, arrayOfLocks, setArrayOfLocks, allRemainingLockpicks, setAllRemainingLockpicks, chosenDifficulty }) => {
-  const lockArray = [
-    1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1
-  ];
+const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRemainingLockpicks, chosenDifficulty }) => {
 
   const { selectedLockpick, setSelectedLockpick } = useLockpickContext();
 
-  const gapSize = 8; // Adjust the size of the gap
+  const gapSize = 20; // Adjust the size of the gap
   const maxRadius = Math.min(500, 1000) / 2; // Increase the radius value to make the circle appear larger
   const centerX = maxRadius; // X-coordinate of the circle's center
   const centerY = maxRadius; // Y-coordinate of the circle's center
-  const stepAngle = (2 * Math.PI) / lockArray.length; // Angle between each step
+  const stepAngle = (2 * Math.PI) / 20; // Angle between each step
 
   const [currentLockIndex, setCurrentLockIndex] = useState(0);
   const [selectedLocks, setSelectedLocks] = useState(arrayOfLocks);
   const [showCongrats, setShowCongrats] = useState(false);
-  const [remainingLockpicks, setRemainingLockpicks] = useState(allRemainingLockpicks);
 
   useEffect(() => {
     setSelectedLocks(arrayOfLocks);
@@ -54,7 +50,8 @@ const CircularLock = ({ numLocks, arrayOfLocks, setArrayOfLocks, allRemainingLoc
         d={pathData}
         fill='none'
         stroke='aliceblue'
-        strokeWidth='8'
+        strokeWidth='15'
+        strokeDasharray='30, .5'
       />
     );
   });
@@ -130,13 +127,10 @@ const CircularLock = ({ numLocks, arrayOfLocks, setArrayOfLocks, allRemainingLoc
       });
 
       // Remove the used lockpick from remainingLockpicks
-      setAllRemainingLockpicks((prevRemainingLockpicks) =>
-      prevRemainingLockpicks.filter((lockpick) => lockpick !== selectedLockpick));
-
       setAllRemainingLockpicks((prevAllRemainingLockpicks) =>
         prevAllRemainingLockpicks.filter((lockpick) => lockpick !== selectedLockpick));
 
-      setSelectedLockpick(remainingLockpicks[0]);
+      setSelectedLockpick(allRemainingLockpicks[0]);
 
     } else {
       // Handle incorrect placement
