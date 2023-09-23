@@ -10,14 +10,18 @@ const SelectedLockpick = ({ selectedLockpick }) => {
   const stepAngle = (2 * Math.PI) / 20; // Angle between each step
 
   const lockpickPath = selectedLockpick.map((value, index) => {
+    const strokeWidth = value === 1 ? '15' : '1';
+
+    const radius = maxRadius * 1.1; // Use the same radius for each circle
+    const startAngle = stepAngle * index;
+    const endAngle = stepAngle * (index + 1);
+
+    const x1 = centerX + radius * Math.cos(startAngle);
+    const y1 = centerY + radius * Math.sin(startAngle);
+    const x2 = centerX + radius * Math.cos(endAngle);
+    const y2 = centerY + radius * Math.sin(endAngle);
+
     if (value === 1) {
-      const radius = maxRadius * 1.1; // Use the same radius for each circle
-      const startAngle = stepAngle * index;
-      const endAngle = stepAngle * (index + 1);
-      const x1 = centerX + radius * Math.cos(startAngle);
-      const y1 = centerY + radius * Math.sin(startAngle);
-      const x2 = centerX + radius * Math.cos(endAngle);
-      const y2 = centerY + radius * Math.sin(endAngle);
 
       return (
         <path
@@ -25,11 +29,19 @@ const SelectedLockpick = ({ selectedLockpick }) => {
           d={`M ${x1},${y1} A ${radius},${radius} 0 0,1 ${x2},${y2}`}
           fill='none'
           stroke='red'
-          strokeWidth='8'
+          strokeWidth={strokeWidth}
         />
       );
     } else {
-      return null;
+      return (
+        <path
+            key={index}
+            d={`M ${x1},${y1} A ${radius},${radius} 0 0,1 ${x2},${y2}`}
+            fill='none'
+            stroke='aliceblue'
+            strokeWidth={strokeWidth}
+          />
+      );
     }
   });
 
