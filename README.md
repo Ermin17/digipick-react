@@ -27,7 +27,7 @@ If you haven't played Starfield's digipick minigame, read below:
   - The selected lockpick is highlighted with a white inner circle in the list.
   - The goal is to align the lockpick with the lock's openings by rotating it and then slotting it using the "Slot" button.
   - Once the lock has all openings filled, it is removed and you can begin the next ring.
-  - Note: Careful! Successfully slotting a lockpick doesn't guarantee it's the correct choice, as each lockpick has only one use. You might run out of correct lockpicks for inner locks and need to restart by selecting a new difficulty.
+  - Note: Careful! Successfully slotting a lockpick doesn't guarantee it's the correct choice, as each lockpick has only one use. You might run out of correct lockpicks for inner rings and need to restart by selecting a new difficulty.
 
 ## Installation
 To use this project, follow these steps:
