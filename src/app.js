@@ -12,6 +12,7 @@ import './styles.css';
 const App = () => {
 
   const [chosenDifficulty, setChosenDifficulty] = useState('novice');
+  const [isChanging, setIsChanging] = useState(false);
 
   const [arrayOfLocks, setArrayOfLocks] = useState(generateArrayOfLocks(chosenDifficulty));
 
@@ -34,6 +35,7 @@ const App = () => {
   // Note: Passing in arrayOfLocks also generates solutions since the path data is inverted. Could optimize later
 
   var handleDifficultyClick = (event) => {
+    setIsChanging(!isChanging);
     var newDifficulty = event.target.textContent;
     setChosenDifficulty(newDifficulty);
 
@@ -65,6 +67,7 @@ const App = () => {
             allRemainingLockpicks={allRemainingLockpicks}
             setAllRemainingLockpicks={setAllRemainingLockpicks}
             chosenDifficulty={chosenDifficulty}
+            isChanging={isChanging}
             />
           </div>
         <div className='column-lockpicks'>

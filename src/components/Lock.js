@@ -5,7 +5,7 @@ import { useLockpickContext } from './LockpickContext';
 import { checkLockpickPlacement } from '../helpers/checkLockpickPlacement.js';
 import '../styles.css';
 
-const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRemainingLockpicks, chosenDifficulty }) => {
+const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRemainingLockpicks, chosenDifficulty, isChanging }) => {
 
   const { selectedLockpick, setSelectedLockpick } = useLockpickContext();
 
@@ -26,7 +26,7 @@ const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRem
 
   useEffect(() => {
     setSelectedLockpick(allRemainingLockpicks[0]);
-  }, [chosenDifficulty]);
+  }, [chosenDifficulty, isChanging]);
 
   const locks = selectedLocks.map((lock, i) => {
     const radius = maxRadius - i * gapSize * 2;
