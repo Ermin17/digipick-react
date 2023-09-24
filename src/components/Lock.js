@@ -157,8 +157,8 @@ const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRem
         {/* Input elements within the SVG */}
         <foreignObject x={0} y={0} width={svgWidth} height={svgHeight}>
           <div className="input-container">
-            <input type='button' value='Shift Left' onClick={shiftLeft} />
-            <input type='button' value='Shift Right' onClick={shiftRight} />
+            <input type='button' value='Move Left' onClick={shiftLeft} />
+            <input type='button' value='Move Right' onClick={shiftRight} />
             <input type='button' value='Slot' onClick={checkAndUpdateLock} />
           </div>
         </foreignObject>
