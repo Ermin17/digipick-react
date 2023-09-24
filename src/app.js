@@ -52,7 +52,7 @@ const App = () => {
     <LockpickProvider>
       <div className='main-screen'>
         <div className='header'>
-          <h1>Starfield Digipick React</h1>
+          <h1>Digipick in React</h1>
           <span>The readme contains information on how to play. </span>
           <div className='choose-difficulty-below'>Choose a difficulty below:</div>
           <div className='current-difficulty'>Current Difficulty: {chosenDifficulty}</div>

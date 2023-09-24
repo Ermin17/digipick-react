@@ -95,6 +95,7 @@ const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRem
   };
 
   const checkAndUpdateLock = () => {
+
     if (checkLockpickPlacement(selectedLocks[currentLockIndex], selectedLockpick)) {
       // Handle the correct placement
       console.log('Correct!');
@@ -124,6 +125,7 @@ const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRem
         }
 
         return updatedLocks;
+
       });
 
       // Remove the used lockpick from remainingLockpicks
