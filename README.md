@@ -14,7 +14,7 @@ The main screen includes:
   - The default is novice.
   - Each difficulty provides additional rings to unlock and more lockpicks to choose from.
 - A list of lockpicks on the right side of the screen that you can select from.
-- A move left, move right, and slot button to take actions on the select lockpick.
+- A move left, move right, and slot button to take actions on the selected lockpick.
 
 ## How to Play
 If you haven't played Starfield's digipick minigame, read below:
