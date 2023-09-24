@@ -43,7 +43,7 @@ To use this project, follow these steps:
 
 ## Future Enhancements
 Currently, the core development is complete but there are features I would like to add in the future:
-  - Implement auto-slotting and undo placement functionality.
+  - Implement auto-slotting and undo-placement functionality.
   - Enhance lockpick generation to reduce the chance of 1-pick lockpicks.
   - Improve the user interface for a better user experience.
   - Add audio cues for correct and incorrect placements.
