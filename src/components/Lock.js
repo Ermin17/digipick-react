@@ -55,8 +55,8 @@ const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRem
     );
   });
 
-  const svgWidth = maxRadius * 2 + gapSize * 30; // Calculate the SVG width
-  const svgHeight = maxRadius * 2 + gapSize * 30; // Calculate the SVG height
+  const svgWidth = maxRadius * 2 + gapSize * 30;
+  const svgHeight = maxRadius * 2 + gapSize * 30;
 
   const updateRemainingLockpicks = (shiftedLockpick) => {
     const indexToUpdate = allRemainingLockpicks.findIndex((lockpick) => {
@@ -64,7 +64,6 @@ const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRem
     });
 
     if (indexToUpdate !== -1) {
-      console.log(allRemainingLockpicks);
       const updatedRemainingLockpicks = [...allRemainingLockpicks];
       updatedRemainingLockpicks[indexToUpdate] = shiftedLockpick;
       setAllRemainingLockpicks(updatedRemainingLockpicks);
@@ -148,7 +147,6 @@ const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRem
             {locks}
             <SelectedLockpick selectedLockpick={selectedLockpick} />
           </g>
-          {/* Input elements within the SVG */}
           <foreignObject x={0} y={0} width={svgWidth} height={svgHeight}>
             <div className="input-container">
               <input type='button' value='Move Left' onClick={shiftLeft} />

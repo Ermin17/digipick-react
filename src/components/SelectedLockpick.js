@@ -12,7 +12,7 @@ const SelectedLockpick = ({ selectedLockpick }) => {
   const lockpickPath = selectedLockpick.map((value, index) => {
     const strokeWidth = value === 1 ? '15' : '1';
 
-    const radius = maxRadius * 1.1; // Use the same radius for each circle
+    const radius = maxRadius * 1.1;
     const startAngle = stepAngle * index;
     const endAngle = stepAngle * (index + 1);
 
@@ -45,8 +45,8 @@ const SelectedLockpick = ({ selectedLockpick }) => {
     }
   });
 
-  const svgWidth = maxRadius * 2 + gapSize * 30; // Calculate the SVG width
-  const svgHeight = maxRadius * 2 + gapSize * 30; // Calculate the SVG height
+  const svgWidth = maxRadius * 2 + gapSize * 30;
+  const svgHeight = maxRadius * 2 + gapSize * 30;
 
   return (
     <>

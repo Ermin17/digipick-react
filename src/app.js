@@ -35,8 +35,6 @@ const App = () => {
   var shuffledLockpicks = shuffleArray(arrayOfLockpicks);
   const [allRemainingLockpicks, setAllRemainingLockpicks] = useState(shuffledLockpicks);
 
-  // Note: Passing in arrayOfLocks also generates solutions since the path data is inverted. Could optimize later
-
   var handleDifficultyClick = (event) => {
     setIsChanging(!isChanging);
     var newDifficulty = event.target.textContent;

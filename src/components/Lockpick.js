@@ -18,9 +18,9 @@ const Lockpick = ({ lockpick }) => {
 
   const paths = lockpick.map((value, index) => {
 
-    const strokeWidth = value === 1 ? '8' : '1'; // Set the stroke width based on value
+    const strokeWidth = value === 1 ? '8' : '1';
 
-    const radius = maxRadius; // Use the same radius for each circle
+    const radius = maxRadius;
     const startAngle = stepAngle * index;
     const endAngle = stepAngle * (index + 1);
 
@@ -36,7 +36,7 @@ const Lockpick = ({ lockpick }) => {
           d={`M ${x1},${y1} A ${radius},${radius} 0 0,1 ${x2},${y2}`}
           fill='none'
           stroke='aliceblue'
-          strokeWidth={strokeWidth} // Use the calculated stroke width
+          strokeWidth={strokeWidth}
         />
       );
     } else {
@@ -46,19 +46,18 @@ const Lockpick = ({ lockpick }) => {
           d={`M ${x1},${y1} A ${radius},${radius} 0 0,1 ${x2},${y2}`}
           fill='none'
           stroke='aliceblue'
-          strokeWidth={strokeWidth} // Use the calculated stroke width
+          strokeWidth={strokeWidth}
         />
       );
     }
 
   });
 
-  const svgWidth = maxRadius * 2 + gapSize * 30; // Calculate the SVG width
-  const svgHeight = maxRadius * 2 + gapSize * 30; // Calculate the SVG height
+  const svgWidth = maxRadius * 2 + gapSize * 30;
+  const svgHeight = maxRadius * 2 + gapSize * 30;
 
   return (
     <svg className='lockpick' width={svgWidth} height={svgHeight} onClick={() => handleLockpickSelection(lockpick)}>
-      {/* Increase the width and height to accommodate the larger circle */}
       <g
         transform={`translate(${
           (svgWidth - (maxRadius * 2 + gapSize * 2)) / 2
