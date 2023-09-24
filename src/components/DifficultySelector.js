@@ -4,7 +4,7 @@ const DifficultySelector = ({ handleDifficultyClick }) => {
 
   return (
     <>
-    <div className='difficulties'>
+    <div className='difficulty'>
       <div id="difficulty-novice" onClick={handleDifficultyClick}>novice</div>
       <div id="difficulty-advanced" onClick={handleDifficultyClick}>advanced</div>
       <div id="difficulty-expert" onClick={handleDifficultyClick}>expert</div>

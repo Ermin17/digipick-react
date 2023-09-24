@@ -3,6 +3,11 @@
   color: aliceblue;
   padding: 10px;
   box-sizing: border-box;
+  font-size: large;
+}
+
+.header div {
+  margin-bottom: 10px;
 }
 
 /* Update the main-screen class */
@@ -19,7 +24,7 @@
   color: aliceblue;
   cursor: pointer;
   display: flex;
-  flex-direction: column; /* Stack vertically */
+  flex-direction: row; /* Stack vertically */
   justify-content: center; /* Center vertically */
   align-items: center; /* Center horizontally */
 }
@@ -35,10 +40,14 @@
 .input-container {
   display: flex;
   justify-content: center;
-  margin-top: 200px;
+  align-items: end;
+  height: 70vh;
+  margin-right: 40px;
 }
 
 .input-container input {
+  display: flex;
+  justify-content: center;
   background-color: aliceblue;
   color: black;
   width: 90px; /* Set the width and height to create square buttons */
@@ -63,6 +72,31 @@
   border: 1px solid #ccc;
   position: relative;
   margin: auto; /* Auto margin to center horizontally within the parent container */
+}
+
+.current-difficulty {
+  display: flex;
+  font-size: xx-large;
+  justify-content: end;
+  position: absolute;
+  width: 72vw;
+  margin-top: 4vh;
+}
+
+.choose-difficulty-below {
+  margin-top: 10px;
+}
+
+.difficulty {
+  font-size: 24px; /* Increase font size */
+  color: aliceblue;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row; /* Stack vertically */
+  width: 100%;
+  position: relative;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .lockpick-header {

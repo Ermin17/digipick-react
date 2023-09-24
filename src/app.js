@@ -51,9 +51,12 @@ const App = () => {
       <div className='main-screen'>
         <div className='header'>
           <h1>Starfield Digipick React</h1>
-        </div>
-        <div className='column-difficulties'>
-          <DifficultySelector handleDifficultyClick={handleDifficultyClick} />
+          <span>The readme contains information on how to play. </span>
+          <div className='choose-difficulty-below'>Choose a difficulty below:</div>
+          <div className='current-difficulty'>Current Difficulty: {chosenDifficulty}</div>
+          <div className='column-difficulties'>
+            <DifficultySelector handleDifficultyClick={handleDifficultyClick} />
+          </div>
         </div>
           <div className='column-lock'>
             <CircularLock
