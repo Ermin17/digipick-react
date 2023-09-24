@@ -100,7 +100,7 @@
 }
 
 .lockpick-header {
-  color: white;
+  color: aliceblue;
   font-size: x-large;
 }
 
@@ -131,5 +131,11 @@
   text-decoration-color: orange;
   text-decoration: underline; /* Underline by default */
   filter: drop-shadow(0 0 5px orange);
+}
+
+.game-complete {
+  margin: 20%;
+  color: aliceblue;
+  font-size: xx-large;
 }
 

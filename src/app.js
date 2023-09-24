@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CircularLock from './components/Lock.js';
 import ListOfLockpicks from './components/ListOfLockpicks.js';
 import DifficultySelector from './components/DifficultySelector.js';
@@ -11,6 +11,7 @@ import './styles.css';
 
 const App = () => {
 
+  const [showCongrats, setShowCongrats] = useState(false);
   const [chosenDifficulty, setChosenDifficulty] = useState('novice');
   const [isChanging, setIsChanging] = useState(false);
 
@@ -22,16 +23,18 @@ const App = () => {
 
   var remainingLockpicks = generateRemainingLockpicks(chosenDifficulty);
   var arrayOfLockpicks = arrayOfSolutions.concat(remainingLockpicks);
-  const [allRemainingLockpicks, setAllRemainingLockpicks] = useState(arrayOfLockpicks);
-
   function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
+    var lockpicks = array.slice();
+    for (let i = lockpicks.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+      [lockpicks[i], lockpicks[j]] = [lockpicks[j], lockpicks[i]];
     }
+    return lockpicks;
   }
 
-  shuffleArray(arrayOfLockpicks);
+  var shuffledLockpicks = shuffleArray(arrayOfLockpicks);
+  const [allRemainingLockpicks, setAllRemainingLockpicks] = useState(shuffledLockpicks);
+
   // Note: Passing in arrayOfLocks also generates solutions since the path data is inverted. Could optimize later
 
   var handleDifficultyClick = (event) => {
@@ -46,6 +49,8 @@ const App = () => {
 
     const newLockpickList = generateRemainingLockpicks(newDifficulty).concat(newArrayOfSolutions);
     setAllRemainingLockpicks(newLockpickList);
+
+    setShowCongrats(false);
   };
 
   return (
@@ -55,29 +60,37 @@ const App = () => {
           <h1>Digipick in React</h1>
           <span>The readme contains information on how to play. </span>
           <div className='choose-difficulty-below'>Choose a difficulty below:</div>
-          <div className='current-difficulty'>Current Difficulty: {chosenDifficulty}</div>
+          {!showCongrats ? <div className='current-difficulty'>Current Difficulty: {chosenDifficulty}</div> : null}
           <div className='column-difficulties'>
             <DifficultySelector handleDifficultyClick={handleDifficultyClick} />
           </div>
         </div>
-          <div className='column-lock'>
-            <CircularLock
-            numLocks={numLocks}
-            arrayOfLocks={arrayOfLocks}
-            allRemainingLockpicks={allRemainingLockpicks}
-            setAllRemainingLockpicks={setAllRemainingLockpicks}
-            chosenDifficulty={chosenDifficulty}
-            isChanging={isChanging}
-            />
-          </div>
-        <div className='column-lockpicks'>
-          <div className='lockpick-list'>
-            <ListOfLockpicks arrayOfLockpicks={allRemainingLockpicks} />
-          </div>
-        </div>
+        {!showCongrats ? (
+          <>
+            <div className='column-lock'>
+              <CircularLock
+                numLocks={numLocks}
+                arrayOfLocks={arrayOfLocks}
+                allRemainingLockpicks={allRemainingLockpicks}
+                setAllRemainingLockpicks={setAllRemainingLockpicks}
+                chosenDifficulty={chosenDifficulty}
+                isChanging={isChanging}
+                setShowCongrats={setShowCongrats}
+              />
+            </div>
+            <div className='column-lockpicks'>
+              <div className='lockpick-list'>
+                <ListOfLockpicks arrayOfLockpicks={allRemainingLockpicks} />
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className='game-complete'>Select a new difficulty to play again.</div>
+        )}
       </div>
     </LockpickProvider>
   );
+
 
 };
 

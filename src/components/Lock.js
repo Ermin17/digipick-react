@@ -5,7 +5,7 @@ import { useLockpickContext } from './LockpickContext';
 import { checkLockpickPlacement } from '../helpers/checkLockpickPlacement.js';
 import '../styles.css';
 
-const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRemainingLockpicks, chosenDifficulty, isChanging }) => {
+const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRemainingLockpicks, chosenDifficulty, isChanging, setShowCongrats }) => {
 
   const { selectedLockpick, setSelectedLockpick } = useLockpickContext();
 
@@ -17,16 +17,15 @@ const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRem
 
   const [currentLockIndex, setCurrentLockIndex] = useState(0);
   const [selectedLocks, setSelectedLocks] = useState(arrayOfLocks);
-  const [showCongrats, setShowCongrats] = useState(false);
-
-  useEffect(() => {
-    setSelectedLocks(arrayOfLocks);
-    setShowCongrats(false);
-  }, [arrayOfLocks]);
 
   useEffect(() => {
     setSelectedLockpick(allRemainingLockpicks[0]);
+    setCurrentLockIndex(0);
   }, [chosenDifficulty, isChanging]);
+
+  useEffect(() => {
+    setSelectedLocks(arrayOfLocks);
+  }, [currentLockIndex, arrayOfLocks]);
 
   const locks = selectedLocks.map((lock, i) => {
     const radius = maxRadius - i * gapSize * 2;
@@ -99,7 +98,6 @@ const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRem
     if (checkLockpickPlacement(selectedLocks[currentLockIndex], selectedLockpick)) {
       // Handle the correct placement
       console.log('Correct!');
-      console.log(selectedLocks);
 
       setSelectedLocks(prevLocks => {
         const updatedLocks = [...prevLocks];
@@ -142,32 +140,26 @@ const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRem
   };
 
 
-
   return (
-  <>
-    <div className='centered-lock-container'>
-      <svg width={svgWidth} height={svgHeight}>
-        <g transform={`translate(${(svgWidth - (maxRadius * 2 + gapSize * 2)) / 2}, ${(svgHeight - (maxRadius * 2 + gapSize * 2)) / 2})`}>
-          {locks}
-          <SelectedLockpick selectedLockpick={selectedLockpick} />
-          {showCongrats && (
-            <text x={svgWidth / 4} y={svgHeight / 2} fontSize={24} fill='white'>
-              Congrats for Unlocking the Lock!
-            </text>
-          )}
-        </g>
-        {/* Input elements within the SVG */}
-        <foreignObject x={0} y={0} width={svgWidth} height={svgHeight}>
-          <div className="input-container">
-            <input type='button' value='Move Left' onClick={shiftLeft} />
-            <input type='button' value='Move Right' onClick={shiftRight} />
-            <input type='button' value='Slot' onClick={checkAndUpdateLock} />
-          </div>
-        </foreignObject>
-      </svg>
-    </div>
-  </>
-);
+    <>
+      <div className='centered-lock-container'>
+        <svg width={svgWidth} height={svgHeight}>
+          <g transform={`translate(${(svgWidth - (maxRadius * 2 + gapSize * 2)) / 2}, ${(svgHeight - (maxRadius * 2 + gapSize * 2)) / 2})`}>
+            {locks}
+            <SelectedLockpick selectedLockpick={selectedLockpick} />
+          </g>
+          {/* Input elements within the SVG */}
+          <foreignObject x={0} y={0} width={svgWidth} height={svgHeight}>
+            <div className="input-container">
+              <input type='button' value='Move Left' onClick={shiftLeft} />
+              <input type='button' value='Move Right' onClick={shiftRight} />
+              <input type='button' value='Slot' onClick={checkAndUpdateLock} />
+            </div>
+          </foreignObject>
+        </svg>
+      </div>
+    </>
+  );
 
 
 };
