@@ -11,12 +11,9 @@ This project was developed to replicate the lockpicking minigame in Starfield.
 
 The main screen includes:
 - A difficulty selector to choose between the 4 available difficulties.
-
   - The default is novice.
   - Each difficulty provides additional rings to unlock and more lockpicks to choose from.
-
 - A list of lockpicks on the right side of the screen that you can select from.
-
 - A move left, move right, and slot button to take actions on the select lockpick.
 
 ## How to Play
