@@ -1,4 +1,5 @@
 # Starfield's Digipick Minigame in React
+Access the project here: https://digipick-react.vercel.app/ or read below on how to run locally.
 
 ## Table of Contents
  - [About](#About)
