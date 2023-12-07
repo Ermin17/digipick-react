@@ -1,5 +1,4 @@
 # Starfield's Digipick Minigame in React
-Access the project here: https://digipick-react.vercel.app/ or read below on how to run locally.
 
 ## Table of Contents
  - [About](#About)
@@ -9,6 +8,7 @@ Access the project here: https://digipick-react.vercel.app/ or read below on how
 
  ## About
 This project was developed to replicate the lockpicking minigame in Starfield.
+It can be accessed at https://digipick-react.vercel.app/ or read the [Installation](#Installation) on how to run it locally.
 
 The main screen includes:
 - A difficulty selector to choose between the 4 available difficulties.
