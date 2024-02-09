@@ -1,4 +1,3 @@
-/* Adjust the header class */
 .header {
   color: aliceblue;
   padding: 10px;
@@ -10,7 +9,6 @@
   margin-bottom: 10px;
 }
 
-/* Update the main-screen class */
 .main-screen {
   display: flex;
   background-color: rgb(44, 44, 44);
@@ -18,15 +16,14 @@
   height: 98vh;
 }
 
-/* Adjust the difficulties class */
 .column-difficulties {
-  font-size: 24px; /* Increase font size */
+  font-size: 24px;
   color: aliceblue;
   cursor: pointer;
   display: flex;
-  flex-direction: row; /* Stack vertically */
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .column-lock {
@@ -34,7 +31,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative; /* Add relative positioning to the columns */
+  position: relative;
 }
 
 .input-container {
@@ -50,7 +47,7 @@
   justify-content: center;
   background-color: aliceblue;
   color: black;
-  width: 90px; /* Set the width and height to create square buttons */
+  width: 90px;
   height: 40px;
   font-size: 16px;
   border: none;
@@ -60,10 +57,9 @@
 }
 
 .input-container input:hover {
-  background-color: lightblue; /* Change the background color on hover */
+  background-color: lightblue;
 }
 
-/* Define the column styling */
 .column-lockpicks {
   flex: 0.95;
   height: 60vh;
@@ -71,7 +67,7 @@
   box-sizing: border-box;
   border: 1px solid #ccc;
   position: relative;
-  margin: auto; /* Auto margin to center horizontally within the parent container */
+  margin: auto;
 }
 
 .current-difficulty {
@@ -88,11 +84,11 @@
 }
 
 .difficulty {
-  font-size: 24px; /* Increase font size */
+  font-size: 24px;
   color: aliceblue;
   cursor: pointer;
   display: flex;
-  flex-direction: row; /* Stack vertically */
+  flex-direction: row;
   width: 100%;
   position: relative;
   align-items: center;
@@ -111,25 +107,25 @@
 /* Add unique IDs for each difficulty button */
 #difficulty-novice:hover {
   text-decoration-color: lightgreen;
-  text-decoration: underline; /* Underline by default */
+  text-decoration: underline;
   filter: drop-shadow(0 0 5px lightgreen);
 }
 
 #difficulty-advanced:hover {
   text-decoration-color: lightskyblue;
-  text-decoration: underline; /* Underline by default */
+  text-decoration: underline;
   filter: drop-shadow(0 0 5px lightskyblue);
 }
 
 #difficulty-expert:hover {
   text-decoration-color: purple;
-  text-decoration: underline; /* Underline by default */
+  text-decoration: underline;
   filter: drop-shadow(0 0 5px purple);
 }
 
 #difficulty-master:hover {
   text-decoration-color: orange;
-  text-decoration: underline; /* Underline by default */
+  text-decoration: underline;
   filter: drop-shadow(0 0 5px orange);
 }
 

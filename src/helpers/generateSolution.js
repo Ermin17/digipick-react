@@ -13,7 +13,6 @@ const generateSolution = (lockArray) => {
   return lockpickArray;
 };
 
-// This will randomize the placement of the rendered lockpick to avoid placing it in the correct spot
 const randomizeSolutionPlacement = (lockpicksArray, positions) => {
   var randomizedPlacement = [...lockpicksArray];
 

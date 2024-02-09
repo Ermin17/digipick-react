@@ -3,9 +3,9 @@ import React from 'react';
 const SelectedLockpick = ({ selectedLockpick }) => {
 
   const gapSize = 8; // Adjust the size of the gap
-  const maxRadius = Math.min(500, 1000) / 2; // Increase the radius value to make the circle appear larger
-  const centerX = maxRadius; // X-coordinate of the circle's center
-  const centerY = maxRadius; // Y-coordinate of the circle's center
+  const maxRadius = Math.min(500, 1000) / 2;
+  const centerX = maxRadius;
+  const centerY = maxRadius;
 
   const stepAngle = (2 * Math.PI) / 20; // Angle between each step
 

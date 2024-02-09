@@ -10,9 +10,9 @@ const Lockpick = ({ lockpick }) => {
   };
 
   const gapSize = 4; // Adjust the size of the gap
-  const maxRadius = Math.min(100, 200) / 2; // Increase the radius value to make the circle appear larger
-  const centerX = maxRadius; // X-coordinate of the circle's center
-  const centerY = maxRadius; // Y-coordinate of the circle's center
+  const maxRadius = Math.min(100, 200) / 2;
+  const centerX = maxRadius;
+  const centerY = maxRadius;
 
   const stepAngle = (2 * Math.PI) / lockpick.length; // Angle between each step
 

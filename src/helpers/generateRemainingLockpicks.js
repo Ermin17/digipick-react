@@ -18,6 +18,7 @@ const generateRemainingLockpicks = (difficulty) => {
     numberOfSolutions = 8;
   }
 
+  // 1 references a 0 here as the lock and lockpickpick arrays are flipped
   while (solutionCount < numberOfSolutions) {
     var newLockpick = [];
     for (var i = 0; i < 20; i++) {

@@ -10,9 +10,9 @@ const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRem
   const { selectedLockpick, setSelectedLockpick } = useLockpickContext();
 
   const gapSize = 20; // Adjust the size of the gap
-  const maxRadius = Math.min(500, 1000) / 2; // Increase the radius value to make the circle appear larger
-  const centerX = maxRadius; // X-coordinate of the circle's center
-  const centerY = maxRadius; // Y-coordinate of the circle's center
+  const maxRadius = Math.min(500, 1000) / 2;
+  const centerX = maxRadius;
+  const centerY = maxRadius;
   const stepAngle = (2 * Math.PI) / 20; // Angle between each step
 
   const [currentLockIndex, setCurrentLockIndex] = useState(0);
@@ -95,7 +95,6 @@ const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRem
   const checkAndUpdateLock = () => {
 
     if (checkLockpickPlacement(selectedLocks[currentLockIndex], selectedLockpick)) {
-      // Handle the correct placement
       console.log('Correct!');
 
       setSelectedLocks(prevLocks => {
@@ -104,14 +103,12 @@ const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRem
           value || updatedLocks[currentLockIndex][index]
         );
 
-        // Check if the current lock is complete (all 1s)
         const isCurrentLockComplete = updatedLocks[currentLockIndex].every(value => value === 1);
 
         if (isCurrentLockComplete) {
-          // Remove the current lock from the array
+
           updatedLocks.splice(currentLockIndex, 1);
 
-          // Update the currentLockIndex if it exceeds the array length
           if (currentLockIndex >= updatedLocks.length) {
             setCurrentLockIndex(updatedLocks.length - 1);
 
@@ -125,16 +122,13 @@ const CircularLock = ({ numLocks, arrayOfLocks, allRemainingLockpicks, setAllRem
 
       });
 
-      // Remove the used lockpick from remainingLockpicks
       setAllRemainingLockpicks((prevAllRemainingLockpicks) =>
         prevAllRemainingLockpicks.filter((lockpick) => lockpick !== selectedLockpick));
 
       setSelectedLockpick(allRemainingLockpicks[0]);
 
     } else {
-      // Handle incorrect placement
       console.log('Try again!');
-
     }
   };
 

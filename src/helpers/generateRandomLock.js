@@ -6,13 +6,10 @@ const generateLockArray = () => {
   // Generate a random number between 0 and maxZeros (inclusive) to determine the number of zeros in the array
   const numZeros = Math.floor(Math.random() * maxZeros) + 1;
 
-  // Calculate the number of ones in the array
   const numOnes = maxLength - numZeros;
 
-  // Create an Array with numZeros zeros and numOnes ones
   const lockArray = Array.from({ length: numZeros }, () => 0).concat(Array.from({ length: numOnes }, () => 1));
 
-  // Shuffle the array randomly to distribute the zeros and ones
   for (let i = lockArray.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
     [lockArray[i], lockArray[j]] = [lockArray[j], lockArray[i]];
@@ -24,7 +21,7 @@ const generateLockArray = () => {
     if (lockArray[i] === 0) {
       consecutiveZeros++;
       if (consecutiveZeros >= 2) {
-        // If there are two consecutive zeros, swap one with a 1
+
         let j = i + 1;
         while (j < lockArray.length && lockArray[j] === 0) {
           j++;
