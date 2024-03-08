@@ -53,8 +53,8 @@ const App = () => {
   };
 
   return (
-    <Analytics />
     <LockpickProvider>
+      <Analytics />
       <div className='main-screen'>
         <div className='header'>
           <h1>Digipick in React</h1>
