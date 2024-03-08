@@ -8,6 +8,7 @@ import generateArrayOfLocks from './helpers/generateRandomLock.js';
 import generateSolution from './helpers/generateSolution.js';
 import generateRemainingLockpicks from './helpers/generateRemainingLockpicks.js';
 import './styles.css';
+import { Analytics } from '@vercel/analytics/react';
 
 const App = () => {
 
@@ -52,6 +53,7 @@ const App = () => {
   };
 
   return (
+    <Analytics />
     <LockpickProvider>
       <div className='main-screen'>
         <div className='header'>
