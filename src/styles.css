@@ -1,8 +1,24 @@
+/* Import a techy font (optional, but enhances the feel) */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  /* Apply techy font */
+  background-color: #1a1f2a;
+  color: #c0c5d1;
+  margin: 0;
+  padding: 0;
+}
+
 .header {
-  color: aliceblue;
-  padding: 10px;
+  color: #c0c5d1;
+  padding: 15px;
   box-sizing: border-box;
-  font-size: large;
+  font-size: 1.2em;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #3a4f6a;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .header div {
@@ -11,127 +27,188 @@
 
 .main-screen {
   display: flex;
-  background-color: rgb(44, 44, 44);
-  margin: 0;
-  height: 98vh;
+  flex-direction: row;
+  align-items: stretch;
+  background-color: #1e1e1e;
+  margin: 20px auto;
+  height: 95vh;
+  width: 100%;
+  max-width: 100%;
 }
 
 .column-difficulties {
-  font-size: 24px;
-  color: aliceblue;
+  font-size: 1.2em;
+  color: #c0c5d1;
   cursor: pointer;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  padding: 20px;
+  width: 33.33%;
+}
+
+.column-difficulties>div {
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
 }
 
 .column-lock {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
+  width: 33.33%;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .input-container {
   display: flex;
   justify-content: center;
-  align-items: end;
-  height: 70vh;
-  margin-right: 40px;
+  align-items: center;
+  height: auto;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+
+.input-container input:hover {
+  background-color: #34495e;
+  border-color: #7a9fcc;
 }
 
 .input-container input {
   display: flex;
   justify-content: center;
-  background-color: aliceblue;
-  color: black;
-  width: 90px;
+  background-color: #2c3e50;
+  color: #e1e8f0;
   height: 40px;
-  font-size: 16px;
-  border: none;
+  font-size: 0.9em;
+  border: 1px solid #4a6fa5;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-left: 5px;
-}
-
-.input-container input:hover {
-  background-color: lightblue;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  margin: 0 5px;
+  border-radius: 4px;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
 }
 
 .column-lockpicks {
-  flex: 0.95;
-  height: 60vh;
-  padding: 10px;
+  width: 33.33%;
+  height: 100%;
+  padding: 15px;
   box-sizing: border-box;
-  border: 1px solid #ccc;
-  position: relative;
-  margin: auto;
+  border: 1px solid #3a4f6a;
+  background-color: rgba(10, 15, 25, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-y: auto;
 }
 
 .current-difficulty {
-  display: flex;
-  font-size: xx-large;
-  justify-content: end;
-  position: absolute;
-  width: 72vw;
-  margin-top: 4vh;
+  font-size: 1.5em;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+  color: #9ab5d1;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .choose-difficulty-below {
   margin-top: 10px;
+  color: #9ab5d1;
+  text-align: center;
+  font-size: 0.9em;
 }
 
 .difficulty {
-  font-size: 24px;
-  color: aliceblue;
+  font-size: 1em;
+  color: #c0c5d1;
   cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  position: relative;
-  align-items: center;
-  justify-content: space-evenly;
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.difficulty {
+  border-color: #4a6fa5;
+  background-color: rgba(44, 62, 80, 0.5);
 }
 
 .lockpick-header {
-  color: aliceblue;
-  font-size: x-large;
+  color: #c0c5d1;
+  font-size: 1.3em;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.5px;
+  width: 100%;
 }
 
 .lockpick:hover {
   cursor: pointer;
 }
 
-/* Add unique IDs for each difficulty button */
+
+.lockpick-item {
+  background-color: #2c3e50;
+  color: #e1e8f0;
+  border: 1px solid #4a6fa5;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 5px;
+  font-size: 0.8em;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.lockpick-item:hover {
+  background-color: #34495e;
+  border-color: #7a9fcc;
+}
+
+
 #difficulty-novice:hover {
-  text-decoration-color: lightgreen;
-  text-decoration: underline;
-  filter: drop-shadow(0 0 5px lightgreen);
+  color: #33cc77;
+  text-decoration: none;
+  filter: drop-shadow(0 0 8px #33cc77);
 }
 
 #difficulty-advanced:hover {
-  text-decoration-color: lightskyblue;
-  text-decoration: underline;
-  filter: drop-shadow(0 0 5px lightskyblue);
+  color: #00bfff;
+  text-decoration: none;
+  filter: drop-shadow(0 0 8px #00bfff);
 }
 
 #difficulty-expert:hover {
-  text-decoration-color: purple;
-  text-decoration: underline;
-  filter: drop-shadow(0 0 5px purple);
+  color: #aa33ff;
+  text-decoration: none;
+  filter: drop-shadow(0 0 8px #aa33ff);
 }
 
 #difficulty-master:hover {
-  text-decoration-color: orange;
-  text-decoration: underline;
-  filter: drop-shadow(0 0 5px orange);
+  color: #ffaa00;
+  text-decoration: none;
+  filter: drop-shadow(0 0 8px #ffaa00);
 }
 
 .game-complete {
-  margin: 20%;
-  color: aliceblue;
-  font-size: xx-large;
+  margin: 20% auto;
+  color: #c0c5d1;
+  font-size: 2em;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
 }
-
